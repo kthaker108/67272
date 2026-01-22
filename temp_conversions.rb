@@ -1,10 +1,15 @@
-def convert(temp)
+def convert(temp, measure = "F")
     return "Temperature must be an integer" unless temp.class == Integer
     return "Temperature below Absolute Zero" if temp < -474
-    5 * (temp - 32)/9
 
-
+    if (measure == "F")
+        5 * (temp - 32)/9
+    else 
+        (temp * 9/5) + 32
+    end
 end
+
+
 
 # TESTS
 puts "Converting Fahrenheit to Celsius"
@@ -13,3 +18,9 @@ puts convert(50)
 puts convert(212)
 puts convert("zero")
 puts convert(-500)
+
+puts "Converting Celsius to Fahrenheit"
+puts convert(0, "C")
+puts convert(10, "C")
+puts convert(100, "C")
+puts convert(-280, "C")
